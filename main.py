@@ -110,13 +110,13 @@ if option == "Einzelfallprüfung":
         buffer = io.BytesIO()
         with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
             export_df.to_excel(writer, index=False, sheet_name='Ergebnis')
-            writer.save()
-            st.download_button(
-                label="📥 Ergebnis als Excel herunterladen",
-                data=buffer.getvalue(),
-                file_name=f"Imsys_Ergebnis_{zaehlernummer}.xlsx",
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            )
+
+        st.download_button(
+            label="📥 Ergebnis als Excel herunterladen",
+            data=buffer.getvalue(),
+            file_name=f"Imsys_Ergebnis_{zaehlernummer}.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
 
 elif option == "Anleitung":
     st.header("📋 Anleitung zur Nutzung des Tools")
